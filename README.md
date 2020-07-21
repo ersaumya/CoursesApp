@@ -1,7 +1,7 @@
 
-## Angular Router 
+## Angular Courses Router App 
 
-Angular routing app with angular 10 as frontend and backend node js with express js as api.
+Angular courses routing app with angular 10 as frontend and backend node js with express js as api.
 
 # Installation pre-requisites
 
