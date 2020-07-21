@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private auth: AuthStore) {
 
     this.form = fb.group({
-      email: ['test@angular-university.io', [Validators.required]],
+      email: ['ersaumyarout@gmail.com', [Validators.required]],
       password: ['test', [Validators.required]]
     });
 
