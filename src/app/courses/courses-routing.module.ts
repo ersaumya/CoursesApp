@@ -1,3 +1,4 @@
+import { CourseResolver } from './services/course.resolver';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -10,21 +11,16 @@ const routes: Routes = [
   },
   {
     path:":courseUrl",
-    component:CourseComponent
+    component:CourseComponent,
+    resolve:{
+      course:CourseResolver
+    }
   }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [
-
-  ]
+  providers: [CourseResolver],
 })
-export class CoursesRoutingModule {
-
-
-
-}
+export class CoursesRoutingModule {}
