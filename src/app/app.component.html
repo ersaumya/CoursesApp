@@ -50,8 +50,9 @@
   </mat-toolbar>
 
   <messages></messages>
+  
+  <loading [detectRoutingOngoing]="true"></loading>
 
-  <loading></loading>
+     <router-outlet></router-outlet>
 
-  <router-outlet></router-outlet>
 </mat-sidenav-container>
