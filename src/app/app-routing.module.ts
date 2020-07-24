@@ -1,3 +1,4 @@
+import { CustomPreloading } from './services/custom-preloading';
 import { CanLoadAuthGuard } from './services/can-load-auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from "./about/about.component";
@@ -18,6 +19,9 @@ const routes: Routes = [
     path:"courses",
     loadChildren:()=>import('./courses/courses.module').then(m=>m.CoursesModule),
     //canLoad:[CanLoadAuthGuard]
+    data:{
+      preload:true
+    }
   },
   {
     path: "login",
@@ -34,10 +38,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    preloadingStrategy:PreloadAllModules
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      //preloadingStrategy: PreloadAllModules,
+      preloadingStrategy: CustomPreloading,
+    }),
+  ],
   exports: [RouterModule],
-  providers: [CanLoadAuthGuard],
+  providers: [CanLoadAuthGuard, CustomPreloading],
 })
 export class AppRoutingModule {}
