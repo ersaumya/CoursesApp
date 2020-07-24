@@ -1,3 +1,4 @@
+import { CanLoadAuthGuard } from './services/can-load-auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from "./about/about.component";
 import { LoginComponent } from "./login/login.component";
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path:"courses",
-    loadChildren:()=>import('./courses/courses.module').then(m=>m.CoursesModule)
+    loadChildren:()=>import('./courses/courses.module').then(m=>m.CoursesModule),
+    canLoad:[CanLoadAuthGuard]
   },
   {
     path: "login",
@@ -34,6 +36,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [],
+  providers: [CanLoadAuthGuard],
 })
 export class AppRoutingModule {}
