@@ -1075,14 +1075,14 @@ export const LESSONS = {
 
 
 export const USERS = {
-  1: {
-    id: 1,
-    email: 'test@angular-university.io',
-    password: 'test',
-    pictureUrl: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png'
-  }
-
-};
+         1: {
+           id: 1,
+           email: "ersaumyarout@gmail.com",
+           password: "test",
+           pictureUrl:
+             "https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png",
+         },
+       };
 
 
 export function findCourseById(courseId: number) {
