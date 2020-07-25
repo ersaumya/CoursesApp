@@ -10,31 +10,40 @@ import {
   PreloadAllModules,
   UrlSerializer,
 } from "@angular/router";
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {
-    path:"",redirectTo:"/courses",pathMatch:"full"
+    path: "",
+    redirectTo: "/courses",
+    pathMatch: "full",
   },
   {
-    path:"courses",
-    loadChildren:()=>import('./courses/courses.module').then(m=>m.CoursesModule),
+    path: "courses",
+    loadChildren: () =>
+      import("./courses/courses.module").then((m) => m.CoursesModule),
     //canLoad:[CanLoadAuthGuard]
-    data:{
-      preload:true
-    }
+    data: {
+      preload: true,
+    },
   },
   {
     path: "login",
     component: LoginComponent,
   },
   {
+    path: "helpdesk-chat",
+    component: ChatComponent,
+    outlet:'chat'
+  },
+  {
     path: "about",
     component: AboutComponent,
   },
   {
-    path:"**",
-    component:PageNotFoundComponent,
-  }
+    path: "**",
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
